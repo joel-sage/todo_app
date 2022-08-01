@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/form_styling/style.css">
+    <title>WELCOME PAGE</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .add-section {
+            position: fixed;
+            right: 10px;
+            top: 10px;
+            height: fit-content;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 14px;
+            box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.355);
+            z-index: 10;
+            background: #1a1c24;
+        }
+        
+        .add-new {
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        
+        .add-new i {
+            height: 30px;
+            width: 30px;
+            background: lime;
+            border-radius: 50%;
+            display: flex;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        
+
+        /* MODAL SECTION */
+        .edit-todo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background: #000000;
+            z-index: 40;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+            transform: scale(1.40); 
+            opacity: 0; 
+            display: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .edit-todo.active1 {
+            display: flex;
+        }
+
+        .edit-todo.active2 {
+            opacity: 1;
+            transform: scale(1.0);
+            transition: .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        }
+
+        .edit {
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            width: fit-content;
+        }
+
+        .edit input,
+        .edit textarea {
+            outline: none;
+            border: none;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-weight: bold;
+            resize: none;
+            background: #2e2e2e;
+            color: white;
+            transition: .9s;
+        }
+
+        .edit input::placeholder,
+        .edit textarea::placeholder {
+            color: #626d6367;
+        }
+
+        .edit input:focus,
+        .edit textarea:focus {
+            border: 1px solid white;
+        }
+
+        .edit input {
+            height: 35px;
+            width: 350px;
+            padding: 0 10px;
+        }
+
+        .edit textarea {
+            height: 100px;
+            padding: 10px;
+        }
+
+        .edit .btn-holder {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            margin: 5px 0;
+        }
+
+        .edit .btn-holder button {
+            height: 30px;
+            width: 120px;
+            outline: none;
+            border: none;
+            background: #00ff40;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media (max-width: 510px) {
+            .edit input {
+                width: 300px;
+                font-size: 1.2rem;
+            }
+
+            .edit textarea {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .edit input {
+                width: 260px;
+            }
+        }
+
+        @media (max-width: 270px) {
+            .edit input {
+                width: 200px;
+            }
+        }
+    </style>
+    <section class="edit-todo">
+        
+        <section class="add-section">
+            <div class="add-new">
+                <h6>Close Section</h6>
+                <i class="fas fa-close close"></i>
+            </div>
+        </section>
+
+        <div class="edit">
+            <input type="text" class="name" placeholder="Name" required>
+            <input type="text" class="title" placeholder="Title" required>
+            <textarea class="text" placeholder="Your Todo Here.....!" required></textarea>
+            <div class="btn-holder">
+                <button class="save">
+                    SAVE
+                </button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

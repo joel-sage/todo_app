@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: calibri;
+}
+
+.add-section {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.355);
+    z-index: 10;
+    background: #1a1c24;
+}
+
+.add-new {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.add-new i {
+    height: 30px;
+    width: 30px;
+    background: lime;
+    border-radius: 50%;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+
+/* ALL TODO SECTION */
+
+.all-todos {
+    height: 100vh;
+    width: 100vw;
+    background: #000e09;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.all-todos::-webkit-scrollbar {
+    width: 2px;
+}
+
+.all-todos::-webkit-scrollbar-thumb {
+    background: black;
+}
+
+
+
+
+.todo-holder {
+    height: fit-content;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+}
+
+.todo {
+    height: fit-content;
+    width: 360px;
+    box-shadow: 0 0 10px 0 #000000ad;
+    border-radius: 10px;
+    padding: 10px 20px;
+    position: relative;
+    margin: 10px;
+    transition: all .7s;
+    background: #014919;
+    color: white;
+}
+
+
+.todo:hover {
+    transform: scale(1.03) translateX(20px);
+}
+
+
+
+.todo-title, .todo-name {
+    height: fit-content;
+    width: 100%;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.todo-title h6 {
+    font-size: 20px;
+}
+
+.todo-name p {
+    font-size: 18px;
+    width: 100%;
+    text-overflow: clip;
+    word-wrap: break-word;
+}
+
+.todo-body {
+    padding: 10px 0;
+}
+
+.delete,
+.editer {
+    position: absolute;
+    z-index: 3;
+    left: -10px;
+    top: -10px;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    justify-content: end;
+    transition: .6s;
+    opacity: 0;
+}
+
+.editer {
+    top: unset;
+    bottom: -10px;
+    
+}
+
+
+.todo:hover .delete,
+.todo:hover .editer {
+    opacity: 1;
+}
+
+.delete button,
+.editer button {
+    height: 38px;
+    width: 38px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    background-color: rgb(55, 73, 55);
+    color: #88ff00;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+
+
+/* MODAL SECTION */
+.modal-todo,
+.edit-todo  {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: #000000de;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    transform: scale(1.40);
+    opacity: 0;
+    display: none;
+    backdrop-filter: blur(10px);
+}
+
+.modal-todo.active1,
+.edit-todo.active1 {
+    display: flex;
+}
+
+.modal-todo.active2,
+.edit-todo.active2 {
+    opacity: 1;
+    transform: scale(1.0);
+    transition: .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.modal,
+.edit {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+}
+
+.modal input,
+.modal textarea,
+.edit input,
+.edit textarea {
+    outline: none;
+    border: none;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-weight: bold;
+    resize: none;
+    background: #2e2e2e;
+    color: white;
+    transition: .9s ;
+}
+
+.modal input::placeholder,
+.modal textarea::placeholder,
+.edit input::placeholder,
+.edit textarea::placeholder {
+    color: #626d6367;
+}
+
+.modal input:focus,
+.modal textarea:focus,
+.edit input:focus,
+.edit textarea:focus {
+    border: 1px solid white;
+}
+
+.modal input,
+.edit input {
+    height: 35px;
+    width: 350px;
+    padding: 0 10px;
+}
+
+.modal textarea,
+.edit textarea {
+    height: 100px;
+    padding: 10px ;
+}
+
+.modal .btn-holder,
+.edit .btn-holder {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin: 5px 0;
+}
+
+.modal .btn-holder button,
+.edit .btn-holder button {
+    height: 30px;
+    width: 120px;
+    outline: none;
+    border: none;
+    background: #00ff40;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.log-out {
+    height: 50px;
+    width: 50px;;
+    background: #014919;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    color: white;
+}
+
+
+@media (max-width: 800px) {
+    .todo-holder {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .todo {
+        width: 300px;
+    }
+}
+
+@media (max-width: 670px) {
+    
+    .todo {
+        width: 230px;    
+    }
+
+}
+
+@media (max-width: 510px) {
+    
+    .todo-holder {
+        grid-template-columns: repeat(1,1fr);
+    }
+    
+    .todo {
+        width: 320px;    
+    }
+    
+    .modal input,
+    .edit input  {
+        width: 300px;
+        font-size: 1.2rem;
+    }
+    .modal textarea,
+    .edit textarea {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .todo {
+        width: 90%;    
+    }
+
+    .modal input,
+    .edit input  {
+        width: 260px;
+    }
+}
+
+@media (max-width: 270px) {
+    .modal input,
+    .edit input {
+        width: 200px;
+    }
+}
+
+
+
+
